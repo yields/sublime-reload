@@ -7,10 +7,12 @@ from subprocess import check_output
 js = """
   var links = document.getElementsByTagName('link');
   var len = links.length;
+  var cloned = null;
   for (var i = 0; i < len; ++i) {
     if (style(links[i])) {
-      links[i].disabled = true;
-      links[i].disabled = false;
+      clone = links[i].cloneNode(true)
+      links[i].parentNode.appendChild(clone)
+      links[i].parentNode.removeChild(links[i])
     }
   }
 
