@@ -1,4 +1,3 @@
-
 ## refresh-on-save
 
 the plugin will refresh styles on the current running browser.
@@ -12,7 +11,7 @@ the plugin will refresh styles on the current running browser.
 ## installation
 
 ```bash
-$ cd <sublime-packages-dir> && curl -o refresh.py https://github.com/yields/st3-refresh-on-save/blob/master/__init__.py
+$ cd <sublime-packages-dir> && curl -o refresh.py https://raw.github.com/yields/st3-refresh-on-save/master/__init__.py
 ```
 
 ## License
