@@ -1,7 +1,7 @@
 
 # refresh-on-save
 
-the plugin will refresh the current browser tab on post save.
+the plugin will refresh styles on the current running browser.
 
 # supported browsers
 
