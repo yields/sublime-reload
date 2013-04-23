@@ -12,7 +12,7 @@ the plugin will refresh styles on the current running browser.
 # installation
 
 ```bash
-$ cd <sublime-packages-dir> && git clone https://github.com/yields/st3-refresh-on-save
+$ cd <sublime-packages-dir> && curl -o refresh.py https://github.com/yields/st3-refresh-on-save/blob/master/__init__.py
 ```
 
 # License
