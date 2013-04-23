@@ -7,7 +7,8 @@ from subprocess import check_output
 js = """
   var links = document.getElementsByTagName('link');
   var len = links.length;
-  var cloned = null;
+  var clone;
+
   for (var i = 0; i < len; ++i) {
     if (style(links[i])) {
       clone = links[i].cloneNode(true)
