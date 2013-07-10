@@ -7,8 +7,7 @@ from subprocess import check_output
 js = """
   var links = document.getElementsByTagName('link');
   var len = links.length;
-  var clone;
-
+  var cloned = null;
   for (var i = 0; i < len; ++i) {
     if (style(links[i])) {
       clone = links[i].cloneNode(true)
@@ -21,15 +20,20 @@ js = """
     return 0 == el.getAttribute('rel').indexOf('style');
   }
 """
- 
+
+def stylesheet(filename):
+  ext = filename.split('.')[-1]
+  return 'css' == ext or 'styl' == ext
+
 class RefreshBrowsers(sublime_plugin.EventListener):
 
   # refresh
   def on_post_save_async(self, view):
-    if self.running('Google Chrome'):
-      self.chrome()
-    if self.running('Safari'):
-      self.safari()
+    if stylesheet(view.file_name()):
+      if self.running('Google Chrome'):
+        self.chrome()
+      if self.running('Safari'):
+        self.safari()
 
   # chech if `app` is running.
   def running(self, app):
@@ -52,4 +56,4 @@ class RefreshBrowsers(sublime_plugin.EventListener):
       tell application "Safari" to do JavaScript "{js}" in document 1
     """.format(js=js)])
 
-    
+
