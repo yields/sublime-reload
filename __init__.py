@@ -8,20 +8,12 @@ scripts = {}
 scripts['js'] = 'location.reload()'
 
 scripts['css'] = scripts['styl'] = """
-  var links = document.getElementsByTagName('link');
-  var len = links.length;
-  var cloned = null;
-  for (var i = 0; i < len; ++i) {
-    if (style(links[i])) {
-      clone = links[i].cloneNode(true)
-      links[i].parentNode.appendChild(clone)
-      links[i].parentNode.removeChild(links[i])
+  [].slice.call(document.getElementsByTagName('link')).forEach(function(el){
+    var rel = el.getAttribute('rel')
+    if (rel && 0 == rel.indexOf('style')) {
+      el.parentNode.replaceChild(el.cloneNode(true), el)
     }
-  }
-
-  function style(el){
-    return 0 == el.getAttribute('rel').indexOf('style');
-  }
+  })
 """
 
 # chech if `app` is running.
