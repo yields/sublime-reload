@@ -36,7 +36,13 @@ def safari(js):
 def chrome(js):
   call(['osascript', '-e', """
     tell application "Google Chrome"
-      execute front window's active tab javascript "{js}"
+      repeat with theWindow in every window
+        repeat with theTab in every tab of theWindow
+          if theTab's URL starts with "http://localhost" or theTab's URL starts with "file:" then
+            execute theTab javascript "{js}"
+          end if
+        end repeat
+      end repeat
     end tell
   """.format(js=js)])
 
