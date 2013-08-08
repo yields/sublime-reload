@@ -5,9 +5,14 @@ from subprocess import check_output
 # js to relaod browsers
 scripts = {}
 
+scripts['md'] =\
+scripts['html'] =\
+scripts['jade'] =\
+scripts['json'] =\
 scripts['js'] = 'location.reload()'
 
-scripts['css'] = scripts['styl'] = """
+scripts['css'] =\
+scripts['styl'] = """
   [].slice.call(document.getElementsByTagName('link')).forEach(function(el){
     var rel = el.getAttribute('rel')
     if (rel && 0 == rel.indexOf('style')) {
