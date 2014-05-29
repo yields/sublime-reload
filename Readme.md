@@ -1,4 +1,4 @@
-## refresh-on-save
+## sublime-reload
 
 the plugin will refresh styles on the current running browser.
 
